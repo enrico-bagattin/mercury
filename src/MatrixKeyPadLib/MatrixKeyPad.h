@@ -41,12 +41,8 @@ const byte rowMatrixPins[ROWS] = {ROW_1, ROW_2, ROW_3, ROW_4};
 //connect to the column pinouts of the keypad
 const byte colMatrixPins[COLS] = {COL_1, COL_2, COL_3, COL_4};
 
-const std::vector<std::string> correctPins {"1234", "1256"};
-
 const Keypad customKeypad = Keypad(makeKeymap(hexaKeys), rowMatrixPins, colMatrixPins, ROWS, COLS);
-
-bool in_array(const std::string &value, const std::vector<std::string> &array);
 
 void initialize_keypad();
 
-void get_keypad_input();
+std::string get_keypad_input();

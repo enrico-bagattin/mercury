@@ -5,13 +5,14 @@
  * 
  * Connection is made through the Serial1 of Arduino Mega 2560:
  *
- *  Arduino PIN 14 (RX1)   =======  5v to 3.3v logic converter ======= GROW GM73 Barcode Scanner TX (black wire)
- *  Arduino PIN 15 (TX1)   =======  5v to 3.3v logic converter ======= GROW GM73 Barcode Scanner RX (yellow wire)
+ *  Arduino PIN 18 (RX1)   =======  5v to 3.3v logic converter ======= GROW GM73 Barcode Scanner TX (black wire)
+ *  Arduino PIN 19 (TX1)   =======  5v to 3.3v logic converter ======= GROW GM73 Barcode Scanner RX (yellow wire)
 */
 
 #include <Arduino.h>
 #include <wiring_private.h>
+#include "ArduinoSTL.h"
 
 void initialize_barcode();
 void serial_barcode_event();
-void get_barcode_input();
+std::string get_barcode_input();

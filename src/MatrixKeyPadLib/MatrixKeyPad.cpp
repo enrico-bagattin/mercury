@@ -16,9 +16,7 @@
 
 #include "MatrixKeyPad.h"
 
-bool in_array(const std::string &value, const std::vector<std::string> &array) {
-    return std::find(array.begin(), array.end(), value) != array.end();
-}
+std::string resultingKCode = "";
 
 void initialize_keypad() {
     int i;
@@ -28,14 +26,17 @@ void initialize_keypad() {
     }
 }
 
-void get_keypad_input() {
+std::string get_keypad_input() {
+    resultingKCode = "";
+
     char customKey = customKeypad.getKey();
     if (customKey) {
         inputPin += customKey;
     }
     if (inputPin.length() == 4) {
-        bool correct = in_array(inputPin, correctPins);
-        std::cout << inputPin + ((correct) ? " Correct" : " Wrong") << "\n";
+        resultingKCode = inputPin;
         inputPin = "";
     }
+
+    return resultingKCode;
 }

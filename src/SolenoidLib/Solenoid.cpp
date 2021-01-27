@@ -40,11 +40,8 @@ void denied_access() {
 
 void accessControl(bool valid) {
     if (valid) {
-        Serial.println("Authorized access");
-        Serial.println();
         open_lock();
     } else {
-        Serial.println("Access denied");
         denied_access();
     }
 }

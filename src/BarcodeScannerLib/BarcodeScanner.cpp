@@ -5,15 +5,16 @@
  * 
  * Connection is made through the Serial1 of Arduino Mega 2560:
  *
- *  Arduino PIN 14 (RX1)   =======  5v to 3.3v logic converter ======= GROW GM73 Barcode Scanner TX (black wire)
- *  Arduino PIN 15 (TX1)   =======  5v to 3.3v logic converter ======= GROW GM73 Barcode Scanner RX (yellow wire)
+ *  Arduino PIN 18 (RX1)   =======  5v to 3.3v logic converter ======= GROW GM73 Barcode Scanner TX (black wire)
+ *  Arduino PIN 19 (TX1)   =======  5v to 3.3v logic converter ======= GROW GM73 Barcode Scanner RX (yellow wire)
  * 
  * Ensure to scan UART Output QR from the manual to use the barcode scanner
 */
 
 #include "BarcodeScanner.h"
 
-String inputString = "";
+std::string inputString = "";
+std::string resultingBCode = "";
 boolean stringComplete = false;
 int countstr = 0;
 unsigned long millisendstr = 0;
@@ -38,12 +39,22 @@ void serial_barcode_event() {
     }
 }
 
-void get_barcode_input() {
+bool isNotAlnum(char c) {
+    return isalnum(c) == 0;
+}
+
+std::string get_barcode_input() {
+    resultingBCode = "";
+
     serial_barcode_event();
     if (stringComplete) {
-        Serial.println(inputString);
+        resultingBCode = inputString;
+        // Remove non alphanumeric chars
+        resultingBCode.erase(std::remove_if(resultingBCode.begin(), resultingBCode.end(), isNotAlnum), resultingBCode.end());
         inputString = "";
         stringComplete = false;
         countstr = 0;
     }
+
+    return resultingBCode;
 }
