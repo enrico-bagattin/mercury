@@ -28,7 +28,7 @@ void initialize_keypad() {
     }
 }
 
-void verify_keypad_input() {
+void get_keypad_input() {
     char customKey = customKeypad.getKey();
     if (customKey) {
         inputPin += customKey;

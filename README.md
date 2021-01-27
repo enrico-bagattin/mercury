@@ -1,5 +1,10 @@
 # Arduino Parcel Delivery Project
 
+## Requirements
+- Arduino Mega 2560
+- Node MCU ESP12E
+- Sensors and modules defined in the libs
+
 ## Development Env
 - Install the lastest version of Arduino IDE
 - Optional: install VS Code with the Arduino plug-in (Settings are searchable through `Cmd+Shift+P` or `Ctrl+Shift+P`)

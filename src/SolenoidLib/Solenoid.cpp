@@ -3,7 +3,7 @@
  * 
  * This library manage a solenoid through a relay
  * 
- * Connection diagram for keypad pins:
+ * Connection diagram:
  *  Arduino PIN 2   ===================  Buzzer
  *  Arduino PIN 3   ===================  Relay
  *  Arduino PIN 4   ===================  Red led

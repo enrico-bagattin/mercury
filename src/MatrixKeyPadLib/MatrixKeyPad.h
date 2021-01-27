@@ -49,4 +49,4 @@ bool in_array(const std::string &value, const std::vector<std::string> &array);
 
 void initialize_keypad();
 
-void verify_keypad_input();
+void get_keypad_input();
